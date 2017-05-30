@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Koan_Jamef>
+            <version>2.0.10</version>
+            <depends>
+                <Mage_Shipping />
+            </depends>
+        </Koan_Jamef>
+    </modules>
+
+    <global>
+        <models>
+            <koan_jamef>
+                <class>Koan_Jamef_Model</class>
+                <resourceModel>Koan_jamef_mysql4</resourceModel>
+            </koan_jamef>
+
+            <koan_jamef_mysql4>
+            	<class>Koan_Jamef_Model_Mysql4</class>
+            	<entities>
+            		<relatorio_calculosfrete>
+            			<table>koan_jamef_calculos</table>
+            		</relatorio_calculosfrete>
+            	</entities>
+            </koan_jamef_mysql4>
+
+        </models>
+
+        <sales>
+            <shipping>
+                <carriers>
+                    <koan_jamef>
+                        <class>Koan_Jamef_Model_Carrier</class>
+                    </koan_jamef>
+                </carriers>
+            </shipping>
+        </sales>
+
+        <helpers>
+            <koan_jamef>
+                <class>Koan_Jamef_Helper</class>
+            </koan_jamef>
+        </helpers>
+
+        <resources>
+            <koan_jamef_setup>
+                <setup>
+                    <module>Koan_Jamef</module>
+                </setup>
+
+                <connection>
+                    <use>directory_setup</use>
+                </connection>
+            </koan_jamef_setup>
+
+            <koan_jamef_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </koan_jamef_write>
+
+            <koan_jamef_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </koan_jamef_read>
+        </resources>
+    </global>
+
+    <default>
+        <carriers>
+            <koan_jamef>
+                <active>0</active>
+                <model>Koan_Jamef_Model_Carrier</model>
+                <title>Jamef</title>
+                <name>Jamef</name>
+                <tiposdefrete></tiposdefrete>
+                <msgerro>Esse método de envio está fora do ar. Por favor, entre em contato conosco.</msgerro>
+            </koan_jamef>
+        </carriers>
+    </default>
+
+</config>
